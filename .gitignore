@@ -3,9 +3,10 @@ binaryData/
 dist/
 git/
 n8n-data/
+node_modules/
+nodes/package.json
 ssh/
 config*
-node_modules/
 *.log
 .DS_Store
 Thumbs.db
