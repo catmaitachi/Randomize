@@ -1,18 +1,21 @@
 {
-  "name": "n8n-nodes-random",
+
+  "name": "true-random-number-generator",
   "version": "1.0.0",
   "main": "dist",
   "scripts": {
     "build": "tsc && gulp build",
-    "dev": "tsc --watch",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "tsc --watch"
   },
-  "keywords": [],
+  "keywords": [ "n8n-custom-node" , "random-number-generator" , "random.org" ],
   "author": "Lucas Spiazzi",
   "license": "ISC",
-  "description": "",
+  "description": "Um conector para gerar números aleatórios usando a API da Random.org.",
   "devDependencies": {
+    "@types/express": "^5.0.3",
+    "@types/nock": "^11.1.0",
     "@types/node": "^24.5.2",
+    "@types/ssh2": "^1.15.5",
     "gulp": "^5.0.1",
     "n8n-core": "^1.14.1",
     "n8n-workflow": "^1.17.0",
@@ -21,6 +24,8 @@
   "n8n": {
     "nodes": [
       "dist/Random/Random.node.js"
-    ]
+    ],
+    "logDirectory": "logs"
   }
+
 }

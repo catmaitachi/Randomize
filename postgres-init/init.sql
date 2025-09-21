@@ -1,5 +1,7 @@
-CREATE TABLE random_numbers (
+CREATE TABLE randomNumbers (
+
     id SERIAL PRIMARY KEY,
-    generated_number INT NOT NULL,
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+    generatedNumber INT NOT NULL,
+    createdAt TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+
 );

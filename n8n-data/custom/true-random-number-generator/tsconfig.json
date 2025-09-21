@@ -1,10 +1,15 @@
 {
+
   "compilerOptions": {
-    "target": "es6",
+
+    "target": "es2022",
+    "lib": ["es2022", "dom"],
     "module": "commonjs",
     "outDir": "./dist",
     "rootDir": "./nodes",
     "strict": true,
     "esModuleInterop": true
+    
   }
+
 }
