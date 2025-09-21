@@ -1,0 +1,25 @@
+# n8n specific files
+
+.n8n/
+credentials.json
+config.json
+.env
+
+# Node.js dependencies
+
+node_modules/
+
+# Logs
+
+- .log
+logs/
+
+# Operating System files
+
+.DS_Store
+Thumbs.db
+
+# Editor specific files
+
+.vscode/
+.idea/
