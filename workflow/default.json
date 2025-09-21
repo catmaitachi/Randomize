@@ -1,0 +1,180 @@
+{
+  "name": "My workflow",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "760c16af-ba56-4686-84bf-39c2095d8f3b",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "min": -100.5
+      },
+      "type": "CUSTOM.random",
+      "typeVersion": 1,
+      "position": [
+        208,
+        0
+      ],
+      "id": "23f68d2c-864c-4700-b800-212488495a46",
+      "name": "Random"
+    },
+    {
+      "parameters": {
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "randomnumbers",
+          "mode": "list",
+          "cachedResultName": "randomnumbers"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "generatednumber": "={{ $json.randomNumber }}"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "generatednumber",
+              "displayName": "generatednumber",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "createdat",
+              "displayName": "createdat",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        416,
+        0
+      ],
+      "id": "3840e8a2-4528-4754-98e9-2ac129c074c5",
+      "name": "Insert rows in a table",
+      "credentials": {
+        "postgres": {
+          "id": "9grMz6dcseUYN9w3",
+          "name": "Postgres account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "randomnumbers",
+          "mode": "list",
+          "cachedResultName": "randomnumbers"
+        },
+        "returnAll": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        624,
+        0
+      ],
+      "id": "d52bab3e-9c3d-44d8-b85b-60a247b26f94",
+      "name": "Select rows from a table",
+      "credentials": {
+        "postgres": {
+          "id": "9grMz6dcseUYN9w3",
+          "name": "Postgres account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Random",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Random": {
+      "main": [
+        [
+          {
+            "node": "Insert rows in a table",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Insert rows in a table": {
+      "main": [
+        [
+          {
+            "node": "Select rows from a table",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "41a4d453-8cf7-4ad7-8038-7d052b94cb72",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "4122bfd32221c82d5af31d52d90433d529a0780461ad433a0fc6d2552421943c"
+  },
+  "id": "5qcjH8UESDIjIgvI",
+  "tags": []
+}

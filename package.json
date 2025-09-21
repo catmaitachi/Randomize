@@ -1,6 +1,6 @@
 {
 
-  "name": "true-random-number-generator",
+  "name": "randomize",
   "version": "1.0.0",
   "main": "dist",
   "scripts": {
@@ -24,8 +24,7 @@
   "n8n": {
     "nodes": [
       "dist/Random/Random.node.js"
-    ],
-    "logDirectory": "logs"
+    ]
   }
 
 }

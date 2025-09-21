@@ -1,25 +1,13 @@
-# n8n specific files
-
 .n8n/
-credentials.json
-config.json
-.env
-
-# Node.js dependencies
-
+binaryData/
+dist/
+git/
+n8n-data/
+ssh/
+config*
 node_modules/
-
-# Logs
-
-- .log
-logs/
-
-# Operating System files
-
+*.log
 .DS_Store
 Thumbs.db
-
-# Editor specific files
-
 .vscode/
 .idea/

@@ -29,6 +29,7 @@ services:
       - "5678:5678"
     volumes:
       - ./n8n-data:/home/node/.n8n
+      - ./:/home/node/.n8n/custom
     depends_on:
       - postgres
 
