@@ -7,7 +7,11 @@ import {
 
 } from 'n8n-workflow';
 
+// Classe responsável pelo node customizado no n8n.
+
 export class Random implements INodeType {
+    
+    // Configuração do node.
 
     description: INodeTypeDescription = {
 
@@ -22,6 +26,8 @@ export class Random implements INodeType {
         outputs: ['main'],
         properties: [
 
+            // Parâmetro para selecionar o recurso ( útil para futuras expansões do node ).
+
             {
                 displayName: 'Resource',
                 name: 'resource',
@@ -35,6 +41,9 @@ export class Random implements INodeType {
                 default: 'trueRandomNumber',
                 noDataExpression: true,
             },
+
+            // Parâmetros para definir o intervalo ( min e max respectivamente ) do número aleatório.
+
             {
                 displayName: 'Min',
                 name: 'min',
@@ -66,8 +75,18 @@ export class Random implements INodeType {
 
             try {
 
+                // Recebe os parâmetros min e max do node.
+
                 const min = this.getNodeParameter('min', i, 1) as number;
                 const max = this.getNodeParameter('max', i, 100) as number;
+
+                /*
+                    Rrequisição à API da Random.org para obter um número aleatório.
+
+                    - Math.trunc() é usado para garantir que os valores min e max sejam inteiros.
+                    - Não existe validação caso min seja maior que max, a API da Random.org retornará um erro nesse caso.
+
+                */ 
 
                 const randomOrgUrl = `https://www.random.org/integers/?num=1&min=${Math.trunc(min)}&max=${Math.trunc(max)}&col=1&base=10&format=plain&rnd=new`;
 
@@ -95,6 +114,8 @@ export class Random implements INodeType {
 
             }
         }
+        
+        // Retorna o número aleatório gerado para o fluxo do n8n.
 
         return [ this.helpers.returnJsonArray( returnData ) ];
 
