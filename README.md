@@ -34,7 +34,7 @@ Antes de começar, verifique se você possui os seguintes itens instalados:
    git clone https://github.com/catmaitachi/Randomize.git
    cd Randomize
    ```
-2. **Instale as dependências:**
+2. **Instale as dependências e compile o projeto:**
    ```sh
    npm install
    npm run build
@@ -77,12 +77,13 @@ Randomize/
 │   └── init.sql                  # Scripts de inicialização do banco PostgreSQL
 │
 ├── test/
-│   └── workflows/            
-│       └── default.json      # Workflows de teste para n8n
+│   └── workflow/            
+│       └── default.json          # Workflow pré-configurados para teste
 │
-├── docker-compose.yml        # Configuração dos containers Docker
-├── gulpfile.js               # Instruções para compilar o ícone SVG
-├── package.json              # Dependências e scripts do projeto Node.js
-├── tsconfig.json             # Configuração do TypeScript
-└── README.md                 # Documentação do projeto
+├── docker-compose.yml            # Configuração do Docker Compose
+├── gulpfile.js                   # Instruções para compilar o ícone SVG
+├── package-lock.json             # Versões exatas das dependências instaladas
+├── package.json                  # Configuração do Node.js e dependências do projeto
+├── tsconfig.json                 # Configuração do TypeScript
+└── README.md                     # Documentação do projeto
 ```
