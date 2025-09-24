@@ -63,3 +63,25 @@ Eis o passo a passo para um teste pré-configurado:
 6. Execute o workflow e verifique os resultados no nó "PostgreSQL - Select All".
 
 ---
+
+## Estrutura do Projeto
+
+```
+Randomize/
+├── nodes/                    
+│   ├── Random.node.ts        # Código-fonte do nó
+│   └── Random.node.svg       # Ícone SVG do nó
+│
+├── postgres-init/            
+│   └── init.sql              # Scripts de inicialização do banco PostgreSQL
+│
+├── test/
+│   └── workflows/            
+│       └── default.json      # Workflows de teste para n8n
+│
+├── docker-compose.yml        # Configuração dos containers Docker
+├── gulpfile.js               # Instruções para compilar o ícone SVG
+├── package.json              # Dependências e scripts do projeto Node.js
+├── tsconfig.json             # Configuração do TypeScript
+└── README.md                 # Documentação do projeto
+```
