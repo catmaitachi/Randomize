@@ -57,7 +57,7 @@ Eis o passo a passo para um teste pré-configurado:
      - Database: `NumbersDB`
      - User: `byCatmaitachi`
      - Password: `777`
-3. Importe o workflow de teste disponível em `./test/workflows/default.json`.
+3. Importe o workflow de teste disponível em `./test/workflow/default.json`.
 4. Selecione as credenciais do PostgreSQL nos nós correspondentes.
 5. Escolha um intervalo de números no nó "True Random Number".
 6. Execute o workflow e verifique os resultados no nó "PostgreSQL - Select All".
